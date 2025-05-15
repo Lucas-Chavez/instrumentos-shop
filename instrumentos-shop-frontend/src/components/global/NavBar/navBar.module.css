@@ -1,0 +1,141 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0 1.5rem;
+    height: 4rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px;
+}
+
+/* Logo o marca */
+.navbarBrand a {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+/* Enlaces de navegación */
+.navLinks {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+}
+
+.navLinks a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.navLinks a:hover {
+    color: #3483fa;
+    background-color: rgba(52, 131, 250, 0.05);
+}
+
+.navLinks svg {
+    font-size: 1rem;
+}
+
+/* Área de acciones de usuario */
+.userActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.uuserProfile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.userProfile svg {
+    color: #666;
+    font-size: 1rem;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.userInfo small {
+    color: #888;
+    font-size: 0.75rem;
+}
+
+/* Botones de acción */
+.logoutBtn, .cartBtn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.1rem;
+    padding: 0.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.logoutBtn:hover, .cartBtn:hover {
+    color: #3483fa;
+    background-color: rgba(52, 131, 250, 0.05);
+}
+
+.cartBtn {
+    position: relative;
+    color: #555;
+    text-decoration: none;
+}
+
+.cartCount {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #3483fa;
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navLinks span {
+        display: none;
+    }
+    
+    .userInfo {
+        display: none;
+    }
+    
+    .navLinks {
+        gap: 0.5rem;
+    }
+}

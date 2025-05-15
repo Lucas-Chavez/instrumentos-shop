@@ -1,0 +1,142 @@
+/* Estilos del slider y tarjetas unificados */
+
+/* Contenedor principal del slider */
+.sliderInstrumentos {
+    max-width: 150vh;  
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Encabezado del slider */
+.sliderHeader {
+    margin-bottom: 20px;
+}
+
+.sliderTitulo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+/* Estructura del slider */
+.sliderWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; 
+}
+
+.sliderContenedor {
+    display: flex;
+    overflow-x: hidden; 
+    scroll-behavior: smooth;
+    padding: 10px 5px;
+    gap: 20px;
+    width: 100%;
+}
+
+.sliderItem {
+    flex: 0 0 auto;
+    width: 300px;
+    max-width: 90%;
+}
+
+/* Controles de navegación */
+.sliderControl {
+    background-color: #3483fa;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10; 
+}
+
+.sliderControl:hover {
+    background-color: #2968c8;
+}
+
+.sliderControlLeft {
+    left: -20px;
+}
+
+.sliderControlRight {
+    right: -20px;
+}
+
+/* Estilos de las tarjetas de instrumentos */
+.tarjetaInstrumento {
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+}
+
+.tarjetaContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra más fuerte */
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+    height: 100%;
+}
+
+.tarjetaContainer:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Sombra más fuerte */
+}
+
+.tarjetaImagenContainer {
+    width: 100%;
+    height: 180px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.tarjetaImagen {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.tarjetaInfo {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.tarjetaTitulo {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+    color: #333;
+    line-height: 1.3;
+    /* Limitar a 2 líneas y mostrar elipsis */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 42px;
+}
+
+.tarjetaVendidos {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}

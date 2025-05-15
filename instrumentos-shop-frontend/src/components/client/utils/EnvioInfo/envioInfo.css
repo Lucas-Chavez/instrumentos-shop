@@ -1,0 +1,22 @@
+.card-envio {
+    color: rgb(27, 217, 40);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.card-envio-pago {
+    color: rgb(232, 106, 11);
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.icono-envio-producto {
+    margin-right: 5px;
+    font-size: 14px;
+}
+

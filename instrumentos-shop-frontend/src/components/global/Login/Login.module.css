@@ -1,0 +1,104 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto; /* Ocupa toda la altura de la ventana */
+    padding: 0;
+}
+
+.loginCard {
+    width: 100%;
+    max-width: 600px; /* Aumentado de 400px a 600px */
+    background-color: #fff;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Sombra más prominente */
+    overflow: hidden;
+}
+
+.loginHeader {
+    background-color: #333;
+    color: white;
+    padding: 25px 30px; /* Padding aumentado */
+    font-size: 24px; /* Texto más grande */
+    font-weight: bold;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    text-align: center;
+}
+
+.loginBody {
+    padding: 40px; /* Más espacio interior */
+}
+
+.loginError {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    text-align: center;
+    animation: fadeIn 0.3s;
+    font-size: 16px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.formGroup {
+    margin-bottom: 30px; /* Más espacio entre grupos */
+}
+
+.formLabel {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+    display: block;
+    font-size: 18px; /* Etiquetas más grandes */
+}
+
+.formControl {
+    width: 100%;
+    padding: 15px; /* Inputs más altos */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px; /* Texto más grande */
+    transition: border-color 0.3s;
+}
+
+.formControl:focus {
+    border-color: #3483fa;
+    outline: none;
+    box-shadow: 0 0 8px rgba(52, 131, 250, 0.6);
+}
+
+.formActions {
+    margin-top: 40px; /* Más espacio arriba del botón */
+    display: flex;
+    justify-content: center;
+}
+
+.btnLogin {
+    background-color: #3483fa;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 18px 25px; /* Botón más grande */
+    font-size: 20px; /* Texto del botón más grande */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btnLogin:hover {
+    background-color: #2968c8;
+    transform: translateY(-2px);
+}
+
+.btnLogin:active {
+    transform: translateY(1px);
+}
