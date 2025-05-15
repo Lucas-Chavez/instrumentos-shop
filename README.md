@@ -8,7 +8,7 @@ Sistema para una tienda de instrumentos musicales con:
     
 -   Backend en Spring Boot (Java)
     
--   Base de datos H2/MySQL
+-   Base de datos H2
     
 
 ## Funcionalidades
@@ -53,7 +53,7 @@ git clone https://github.com/Lucas-Chavez/instrumentos-shop.git
 
 2.  Iniciar frontend:
 ```
-cd instrumentos-shop
+cd instrumentos-shop-frontend
 npm install
 npm run dev
 ```
