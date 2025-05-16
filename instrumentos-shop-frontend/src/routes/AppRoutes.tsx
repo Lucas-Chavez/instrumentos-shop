@@ -3,15 +3,15 @@ import { Route, Routes } from 'react-router-dom';
 import RolUsuario from './ControlAcceso/RolUsuario';
 import { Rol } from '../types/Rol';
 import LoadingFallback from '../components/global/Loading/LoadingFallback';
-// ...resto del código...
-
-// Importaciones normales
 import Login from '../components/global/Login/Login';
 import ClientPage from '../pages/client/ClientPage';
 import DetalleInstrumento from '../components/client/DetalleInstrumento/DetalleInstrumento';
 import Carrito from '../components/client/Carrito/Carrito';
 import AdminPage from '../pages/admin/AdminPage';
 import RutaInteligente from './ControlAcceso/RutaInteligente';
+import PaymentSuccess from '../pages/PaymentResult/Success';
+import PaymentFailure from '../pages/PaymentResult/Failure';
+import PaymentPending from '../pages/PaymentResult/Pending';
 
 const AppRoutes = () => {
     return (
@@ -41,6 +41,10 @@ const AppRoutes = () => {
                 
                 {/* Captura cualquier otra ruta no definida */}
                 <Route path="*" element={<RutaInteligente />} />
+
+                <Route path="/success" element={<PaymentSuccess />} />
+                <Route path="/failure" element={<PaymentFailure />} />
+                <Route path="/pending" element={<PaymentPending />} />
             </Routes>
         </Suspense>
     );

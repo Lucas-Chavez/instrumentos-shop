@@ -7,6 +7,7 @@ import { createPedido, getInstrumentoById, updateInstrumento } from '../../../ap
 import type { Pedido, PedidoDetalle } from '../../../types/types';
 import ObtenerEnvio from '../utils/ObtenerEnvio';
 import EnvioInfo from '../utils/EnvioInfo/EnvioInfo';
+import MercadoPagoCheckout from '../../MercadoPagoCheckout/MercadoPagoCheckout';
 
 function Carrito() {
     const { cart, addCarrito, removeItemCarrito, removeCarrito, clearCarrito, totalPedido } = useCarrito();
@@ -14,6 +15,7 @@ function Carrito() {
     const [mostrarMensaje, setMostrarMensaje] = useState<boolean>(false);
     const [procesando, setProcesando] = useState<boolean>(false);
     const [tipoMensaje, setTipoMensaje] = useState<'exito' | 'error'>('exito');
+    const [usarMercadoPago, setUsarMercadoPago] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const scrollToSectionWithOffset = (sectionId: string, offset: number = 80) => {
@@ -40,6 +42,13 @@ function Carrito() {
             return;
         }
 
+        // Si el usuario elige pagar con Mercado Pago
+        if (usarMercadoPago) {
+            setUsarMercadoPago(true);
+            return;
+        }
+
+        // Proceso normal de compra (como estaba antes)
         try {
             setProcesando(true);
             
@@ -111,13 +120,10 @@ function Carrito() {
     };
 
     const handleVolverTienda = () => {
-        // Navegar a la página principal
         navigate('/ClientPage');
-        
-        // Después de la navegación, desplazar a la sección de productos
         setTimeout(() => {
             scrollToSectionWithOffset('productos');
-        }, 100); // Pequeño retraso para asegurar que la página se haya cargado
+        }, 100);
     };
 
     return (
@@ -145,14 +151,15 @@ function Carrito() {
                 ) : (
                     <>
                         <div className={styles["lista-productos"]}>
+                            {/* El resto del código de la lista de productos se mantiene igual */}
                             {cart.map((item) => {
-                                // Obtener información de envío para mostrarla
                                 const envioInfo = item.instrumento ? 
                                     ObtenerEnvio(item.instrumento.costoEnvio) : 
                                     { envio: '', claseEnvio: '', iconoEnvio: null };
                                 
                                 return (
                                     <div key={item.id} className={styles["producto-carrito"]}>
+                                        {/* Contenido de cada producto en el carrito (sin cambios) */}
                                         <div className={styles["imagen-producto-carrito"]}>
                                             <img 
                                                 src={`/img/${item.instrumento?.imagen}`} 
@@ -228,27 +235,51 @@ function Carrito() {
                             </div>
                             
                             <div className={styles["acciones-carrito"]}>
-                                <button 
-                                    className={styles["boton-vaciar-carrito"]}
-                                    onClick={clearCarrito}
-                                    disabled={procesando}
-                                >
-                                    Vaciar Carrito
-                                </button>
-                                <button 
-                                    className={styles["boton-finalizar-compra"]}
-                                    onClick={handleFinalizarCompra}
-                                    disabled={procesando}
-                                >
-                                    {procesando ? 'Procesando...' : 'Finalizar Compra'}
-                                </button>
-                                <button 
-                                    className={styles["boton-seguir-comprando"]}
-                                    onClick={handleVolverTienda}
-                                    disabled={procesando}
-                                >
-                                    Seguir Comprando
-                                </button>
+                                {/* Integración de Mercado Pago */}
+                                {usarMercadoPago ? (
+                                    <MercadoPagoCheckout
+                                        title="Compra en Instrumentos Hendrix"
+                                        price={totalPedido || 0}
+                                        quantity={1}
+                                        description={`Compra de ${cart.reduce((total, item) => total + item.cantidad, 0)} productos`}
+                                        onProcessingChange={setProcesando}
+                                    />
+                                ) : (
+                                    <>
+                                        <button 
+                                            className={styles["boton-vaciar-carrito"]}
+                                            onClick={clearCarrito}
+                                            disabled={procesando}
+                                        >
+                                            Vaciar Carrito
+                                        </button>
+
+                                        {/* Botón de Mercado Pago */}
+                                        <button 
+                                            className={styles["boton-mercado-pago"]}
+                                            onClick={() => setUsarMercadoPago(true)}
+                                            disabled={procesando}
+                                        >
+                                            Pagar con Mercado Pago
+                                        </button>
+
+                                        <button 
+                                            className={styles["boton-finalizar-compra"]}
+                                            onClick={handleFinalizarCompra}
+                                            disabled={procesando}
+                                        >
+                                            {procesando ? 'Procesando...' : 'Finalizar Compra'}
+                                        </button>
+                                        
+                                        <button 
+                                            className={styles["boton-seguir-comprando"]}
+                                            onClick={handleVolverTienda}
+                                            disabled={procesando}
+                                        >
+                                            Seguir Comprando
+                                        </button>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </>

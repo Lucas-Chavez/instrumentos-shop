@@ -331,3 +331,28 @@
     vertical-align: middle;
 }
 
+
+/* Estilo para botón de MP */
+
+.boton-mercado-pago {
+    background-color: #009ee3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.boton-mercado-pago:hover {
+    background-color: #007eb5;
+}
+
+.boton-mercado-pago:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

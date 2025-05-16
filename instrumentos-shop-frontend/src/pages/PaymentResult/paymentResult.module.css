@@ -1,0 +1,152 @@
+/* src/pages/PaymentResult/paymentResult.module.css */
+.paymentResultContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: calc(100vh - 80px);
+    /* Ajusta según la altura de tu NavBar */
+}
+
+.paymentResultCard {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.iconContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.successIcon {
+    font-size: 80px;
+    color: #4CAF50;
+}
+
+.failureIcon {
+    font-size: 80px;
+    color: #F44336;
+}
+
+.pendingIcon {
+    font-size: 80px;
+    color: #FF9800;
+}
+
+.paymentResultCard h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.paymentResultCard p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.paymentDetails {
+    background-color: #f8f8f8;
+    border-radius: 6px;
+    padding: 15px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.thankYouMessage {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 20px 0;
+    color: #333;
+}
+
+.errorMessage {
+    color: #F44336;
+    font-weight: 500;
+}
+
+.actionButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.backButton,
+.retryButton {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.backButton {
+    background-color: #2196F3;
+    color: white;
+    margin-top: 20px;
+}
+
+.backButton:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+}
+
+.retryButton {
+    background-color: #FF9800;
+    color: white;
+}
+
+.retryButton:hover {
+    background-color: #F57C00;
+    transform: translateY(-2px);
+}
+
+.pendingMessage {
+    background-color: #FFF8E1;
+    border-left: 4px solid #FF9800;
+    padding: 10px 15px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+/* Estilos específicos para cada tipo de tarjeta */
+.failureCard {
+    border-top: 5px solid #F44336;
+}
+
+.pendingCard {
+    border-top: 5px solid #FF9800;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    .paymentResultCard {
+        padding: 20px;
+    }
+
+    .actionButtons {
+        flex-direction: column;
+    }
+}

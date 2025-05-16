@@ -60,8 +60,6 @@ export const createPedido = async (pedido: Omit<Pedido, 'id'>): Promise<Pedido> 
     return await response.json();
 };
 
-
-// Añadir al final del archivo
 export const login = async (username: string, password: string): Promise<Usuario> => {
     const response = await fetch(`${API_URL}/usuarios/auth/login`, {
         method: 'POST',
