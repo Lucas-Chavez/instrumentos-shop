@@ -23,4 +23,6 @@ public class PedidoDetalle {
 
 
     private Integer cantidad;
+
+
 }
