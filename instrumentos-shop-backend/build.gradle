@@ -33,7 +33,11 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation("com.mercadopago:sdk-java:2.2.0")
+	implementation 'com.lowagie:itext:2.1.7' // versión libre bajo LGPL/MPL
+	implementation 'org.apache.poi:poi:5.2.5'
+	implementation 'org.apache.poi:poi-ooxml:5.2.5'
 }
+
 
 tasks.named('test') {
 	useJUnitPlatform()

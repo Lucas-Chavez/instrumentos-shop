@@ -7,6 +7,8 @@ import EnvioInfo from '../utils/EnvioInfo/EnvioInfo';
 import { useCarrito } from '../../hooks/UseContext';
 import { Rol } from '../../../types/Rol';
 import styles from './grillaInstrumento.module.css';
+import BotonDescargaPdf from './BotonDescargaPdf'; // o la ruta correcta según tu estructura
+
 
 function GrillaInstrumentos() {
     const [instrumentos, setInstrumentos] = useState<Instrumento[]>([]);
@@ -127,11 +129,14 @@ function GrillaInstrumentos() {
                                     <p className={styles.cardText}>${instrumento.precio}</p>
                                     <EnvioInfo claseEnvio={claseEnvio} iconoEnvio={iconoEnvio} envio={envio} />
                                     <p className={styles.cardVendidos}>{instrumento.cantidadVendida} vendidos</p>
-                                    
-                                    <div className={styles.accionesContainer}>
+
+                                    <div className={styles.botonesContainer}>
                                         <a href={`detalle/${instrumento.id}`}>
                                             <button type='button' className={styles.btn}>Detalles</button>
                                         </a>
+                                        <BotonDescargaPdf instrumentoId={instrumento.id} />
+                                    
+                                    
                                         
                                         {/* Mostrar los controles del carrito solo si NO es usuario VISOR */}
                                         {!esUsuarioVisor && (
@@ -163,7 +168,7 @@ function GrillaInstrumentos() {
                                                 </button>
                                             </>
                                         )}
-                                    </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
